@@ -17,10 +17,10 @@ var app = express()
 /** Engine usada para processamento */
 app.set('view engine', 'ejs') 
 /** Onde a view podem ser encontradas */
-app.set('vies', 'app/views')
+app.set('views', './app/views')
 
 /** COnfigurar o middleware express.static */
-app.use(express.static('app/public'))
+app.use(express.static('./app/public'))
 
 /** Configurar o middleware body-parser  */
 app.use(bodyParser.urlencoded({extended: true}))
