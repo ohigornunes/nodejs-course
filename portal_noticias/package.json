@@ -1,0 +1,31 @@
+{
+  "name": "portal_noticias",
+  "version": "1.0.0",
+  "description": "Site de noticias",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hfn",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "consign": "^0.1.6",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-validator": "^4.3.0",
+    "flow-bin": "^0.64.0",
+    "http": "0.0.0",
+    "mysql": "^2.15.0",
+    "validator.js": "^2.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-flow": "^6.23.0",
+    "ejs-lint": "^0.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Sem"
+  }
+}
