@@ -20,11 +20,11 @@ module.exports.cadastrar = function(application, req, res) {
     }  
 
     var connection = application.config.dbConnection;
-    var UsuariosDAO = new application.app.models.UsuariosDAO(connection);
-    var JogoDAO = new application.app.models.JogoDAO(connection);
+    var UsuariosModel = new application.app.models.UsuariosModel(connection);
+    var JogoModel = new application.app.models.JogoModel(connection);
     
-    UsuariosDAO.inserirUsuario(dadosForm)
-    JogoDAO.gerarParametros(dadosForm.usuario)
+    UsuariosModel.inserirUsuario(dadosForm)
+    JogoModel.gerarParametros(dadosForm.usuario)
 
     res.send('Podemos cadastar');
 }

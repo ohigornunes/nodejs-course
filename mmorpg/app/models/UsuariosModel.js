@@ -1,10 +1,10 @@
-function UsuariosDAO(connection) {
-    console.log('UsuariosDAO connection ')
+function UsuariosModel(connection) {
+    console.log('UsuariosModel connection ')
     this._connection = connection();
 }
 
-UsuariosDAO.prototype.inserirUsuario = function(usuario) {
-    console.log('UsuariosDAO .inserirUsuario ')
+UsuariosModel.prototype.inserirUsuario = function(usuario) {
+    console.log('UsuariosModel .inserirUsuario ')
     
     this._connection.open( function(err, mongoclient) {
         /* através do mongoclient é que manipulamos as collection e documentos */
@@ -15,18 +15,19 @@ UsuariosDAO.prototype.inserirUsuario = function(usuario) {
     });
 }
 
-UsuariosDAO.prototype.autenticar = function(usuario, req, res) {
-    console.log('UsuariosDAO .autenticar ')
+UsuariosModel.prototype.autenticar = function(usuario, req, res) {
+    console.log('UsuariosModel .autenticar ')
     
     this._connection.open(function(err, mongoclient) {
         mongoclient.collection("usuarios", function(err, collection) {
             collection.find(usuario).toArray(function(err, result){
-               if(result[0] != undefined){
-                   req.session.autorizado = true;
-                   req.session.usuario = result[0].usuario;
-                   req.session.casa = result[0].casa;
-               }
-               if (req.session.autorizado){
+                console.log(result[0])
+                if(result[0] != undefined){
+                    req.session.autorizado = true;
+                    req.session.usuario = result[0].usuario;
+                    req.session.casa = result[0].casa;
+                }
+                if (req.session.autorizado){
                    res.redirect('jogo');
                } else{
                    res.render('indexView', {validacao: {}});
@@ -37,6 +38,7 @@ UsuariosDAO.prototype.autenticar = function(usuario, req, res) {
     }); 
 }
 
+
 module.exports = function () {
-    return UsuariosDAO;
+    return UsuariosModel;
 }

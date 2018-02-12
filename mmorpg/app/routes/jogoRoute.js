@@ -23,4 +23,9 @@ module.exports = function (application) {
         console.log('jogoRoute /ordenar_acao_sudito')
         application.app.controllers.jogoController.ordenar_acao_sudito(application, req, res)
     });
+
+    application.get('/revogar_acao', function (req, res) {
+        console.log('jogoRoute /ordenar_acao_sudito')
+        application.app.controllers.jogoController.revogar_acao(application, req, res)
+    });
 }
